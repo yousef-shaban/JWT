@@ -3,7 +3,7 @@ import errorHandlerMiddleware from "./middleware/error-handling.js"
 import notFound from "./middleware/not-found.js"
 import {Router} from "./Routers/router.js"
 const app = express()
-const PORT = 3000
+const PORT = process.env.PORT || 3000
 
 // middleware 
 app.use(express.json())
@@ -22,7 +22,7 @@ app.use(notFound)
 const start = async ()=>{
     try {
         app.listen(PORT, () => {
-            console.log("server is working on port 3000");
+            console.log(`server is working on port ${PORT}`);
         });
     } catch (error) {
         console.log(error)
